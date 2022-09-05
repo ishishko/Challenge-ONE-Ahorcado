@@ -1,0 +1,287 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #0a3871;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #e5e5e5;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+header {
+  position: absolute;
+}
+
+.logo {
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.flex__container,
+.flex__container1,
+.flex__container2,
+.flex__container3 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  text-align: center;
+}
+
+.btn {
+  /* padding: 24px; */
+  gap: 8px;
+  margin: 0 1% 0 1%;
+  width: 15%;
+  height: 67px;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  background-color: transparent;
+  border-radius: 24px;
+  border: 1px solid #0a3871;
+}
+
+.btn--azul {
+  color: #e5e5e5;
+  background-color: #0a3871;
+}
+
+.texto {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 150%;
+  color: #0a3871;
+  background-color: transparent;
+}
+/* ----------------------1-------------------- */
+.flex__container1 {
+  /* display: none; */
+}
+
+.btn--iniciar {
+  background-color: #0a3871;
+  color: #e5e5e5;
+  margin-bottom: 1%;
+  width: 18.5%;
+  height: 114px;
+}
+.btn--ingresarPalabra {
+  padding: 0;
+}
+
+/* ----------------------2------------------------ */
+
+.flex__container2 {
+  justify-content: space-evenly;
+  display: none;
+}
+
+.container2 {
+  display: flex;
+  justify-content: center;
+  font-family: Arial;
+  font-size: 12px;
+  opacity: 0.7;
+}
+.ingresartexto {
+  width: 18%;
+  border: none;
+  outline: none;
+}
+
+.importante {
+  width: 16px;
+  height: 16px;
+}
+
+.textoImportante {
+  color: #495057;
+  opacity: 0.8;
+  background-color: transparent;
+  border: none;
+  height: 30px;
+}
+
+/* ---------------------3---------------------------- */
+
+.flex__container3 {
+  display: none;
+  justify-content: start;
+}
+
+.container3A {
+  width: 100%;
+  height: 60%;
+}
+
+.container3P {
+  display: flex;
+  width: 100%;
+  height: 15%;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerIncorectas {
+  text-align: center;
+  letter-spacing: 10px;
+  text-shadow: 0 0 5px red;
+  width: 100%;
+  height: 10%;
+}
+
+.letras {
+  text-align: center;
+  width: 60px;
+  height: 65px;
+  margin: 10px 10px 10px 10px;
+  font-size: 48px;
+  border-bottom: 4px solid #0a3871;
+}
+
+.container--3btn {
+  width: 100%;
+  height: 15%;
+  text-align: center;
+}
+
+/* -----------------DIBUJO--------------------- */
+
+.horca {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.dibujoBase {
+  position: absolute;
+  width: 20%;
+  height: 5px;
+  border: 3px solid #0a3871;
+  border-radius: 3px;
+  top: 50%;
+  left: 40%;
+}
+
+.dibujoPalo {
+  position: absolute;
+  width: 5px;
+  height: 39.5%;
+  border: 3px solid #0a3871;
+  border-radius: 3px;
+  top: 11%;
+  left: 45%;
+}
+
+.dibujoBase1 {
+  position: absolute;
+  width: 10%;
+  height: 5px;
+  border: 3px solid #0a3871;
+  border-radius: 3px;
+  top: 11%;
+  left: 45%;
+}
+
+.dibujoPalo1 {
+  position: absolute;
+  width: 5px;
+  height: 7%;
+  border: 3px solid #0a3871;
+  border-radius: 3px;
+  top: 11%;
+  left: 54.7%;
+}
+
+.colgado {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.cabeza {
+  position: absolute;
+  width: 3.75%;
+  height: 7.25%;
+  min-width: 47px;
+  border: 6px solid #0a3871;
+  border-radius: 50%;
+  top: 17.5%;
+  left: 52.95%;
+}
+
+.tronco {
+  position: absolute;
+  width: 5px;
+  height: 14%;
+  border: 3px solid #0a3871;
+  border-radius: 3px;
+  top: 24.25%;
+  left: 54.7%;
+}
+
+.pata1 {
+  position: absolute;
+  width: 5px;
+  height: 7%;
+  border: 4px solid #0a3871;
+  border-radius: 3px;
+  top: 37.45%;
+  left: 53.8%;
+  transform: rotate(30deg);
+}
+
+.pata2 {
+  position: absolute;
+  width: 5px;
+  height: 7%;
+  border: 4px solid #0a3871;
+  border-radius: 3px;
+  top: 37.45%;
+  left: 55.45%;
+  transform: rotate(-30deg);
+}
+
+.brazo1 {
+  position: absolute;
+  width: 5px;
+  height: 7%;
+  border: 4px solid #0a3871;
+  border-radius: 3px;
+  top: 26.45%;
+  left: 53.8%;
+  transform: rotate(30deg);
+}
+
+.brazo2 {
+  position: absolute;
+  width: 5px;
+  height: 7%;
+  border: 4px solid #0a3871;
+  border-radius: 3px;
+  top: 26.45%;
+  left: 55.45%;
+  transform: rotate(-30deg);
+}

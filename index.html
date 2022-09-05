@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>ONE Ahorcado</title>
+  </head>
+  <body>
+    <header class="header">
+      <img src="./Logo.png" alt="Logo Alura" class="logo" />
+    </header>
+    <div class="flex__container">
+      <!-- -----------------1----------------------- -->
+      <div class="flex__container1">
+        <div class="container">
+          <button class="btn btn--iniciar">Iniciar juego</button>
+        </div>
+        <div class="container">
+          <button class="btn btn--ingresarPalabra">Agregar una nueva Palabra</button>
+        </div>
+      </div>
+      <!-- -----------------2---------------------- -->
+      <div class="flex__container2">
+        <div class="container">
+          <input type="text" placeholder="Ingrese aqui su texto" class="texto ingresartexto" />
+        </div>
+        <div class="container">
+          <img src="./Vector.png" alt="IMPORTANTE" />
+          <input class="textoImportante" type="text" value="Max. 8 letras" disabled />
+        </div>
+        <div class="container">
+          <button class="btn btn--azul">Guardar y empesazar</button>
+          <button class="btn">Palabra Secreta</button>
+          <button class="btn">Cancelar</button>
+        </div>
+      </div>
+      <!-- ------------------3--------------------- -->
+      <div class="flex__container3">
+        <div class="horca">
+          <div class="dibujoBase"></div>
+          <div class="dibujoPalo"></div>
+          <div class="dibujoBase1"></div>
+          <div class="dibujoPalo1"></div>
+        </div>
+        <div class="colgado">
+          <div class="cabeza"></div>
+          <div class="tronco"></div>
+          <div class="pata1"></div>
+          <div class="pata2"></div>
+          <div class="brazo1"></div>
+          <div class="brazo2"></div>
+        </div>
+        <div class="container3A"></div>
+        <div class="container3P">
+          <div class="texto letras">1</div>
+          <div class="texto letras">2</div>
+          <div class="texto letras">3</div>
+          <div class="texto letras">4</div>
+          <div class="texto letras">5</div>
+          <div class="texto letras">6</div>
+          <div class="texto letras">7</div>
+          <div class="texto letras">8</div>
+        </div>
+        <div class="texto containerIncorectas">1234</div>
+        <div class="container--3btn">
+          <button class="btn btn--azul">Nuevo juego</button>
+          <input class="btn" type="submit" value="Desistir" />
+        </div>
+      </div>
+    </div>
+    <footer>footer</footer>
+  </body>
+</html>
