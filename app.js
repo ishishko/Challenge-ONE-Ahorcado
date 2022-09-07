@@ -50,8 +50,7 @@ function grillaPalabra(palabra) {
   }
 }
 
-//verifica las letras introducidas desde teclado
-
+//Inicia funciones de verificacion
 function verificar(evt) {
   evt = evt.toUpperCase();
   correctas(evt);
