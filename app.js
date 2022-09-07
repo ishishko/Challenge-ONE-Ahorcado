@@ -1,22 +1,27 @@
 const container3P = document.querySelector(".container3P");
 const containerIncorectas = document.querySelector(".containerIncorectas");
 const teclado = document.querySelector("html");
+const expRegLetras = /^[A-Z]+$/i;
 let Muneco = "";
 
 let seleccionada = "";
 let incorrecta = "";
 let numeroIncorrectas = 0;
-let numeroMuneco = 0;
+let correcta = "";
 let numeroCorrectas = 0;
-let habilitateclado = false;
+let numeroMuneco = 0;
 let palabra = "";
 let largoPalabra = 0;
 
-//if (habilitateclado) {
-teclado.addEventListener("keyup", (evt) => {
-  verificar(evt.key);
-});
-//}
+if ((habilitateclado = true)) {
+  teclado.addEventListener("keyup", (evt) => {
+    evt = evt.key.toLocaleUpperCase();
+    console.log(evt);
+    if (expRegLetras.test(evt) == true && evt.split("").length == 1) {
+      verificar(evt);
+    }
+  });
+}
 
 //selecciona palabra
 function seleccionar(adivinar) {
@@ -45,31 +50,47 @@ function grillaPalabra(palabra) {
   }
 }
 
+//verifica las letras introducidas desde teclado
+
 function verificar(evt) {
   evt = evt.toUpperCase();
+  correctas(evt);
+  incorrectas(evt);
+  if (numeroCorrectas == largoPalabra + 1) {
+    console.log("GANASTE");
+  }
+  if (numeroIncorrectas == 6) {
+    console.log("PERDISTE");
+  }
+}
+
+//verifica si la letra esta incluida en la palabra secreta
+//Compra cada letra y visiviliza las correctas|| Contador para ganar
+function correctas(evt) {
   if (seleccionada.includes(evt)) {
-    for (let i = 0; i <= largoPalabra; i++) {
-      const letra = document.querySelector(".letra" + i);
-      if (evt == letra.textContent) {
-        letra.style.fontSize = "48px";
-        console.log("encontrada");
-        numeroCorrectas++;
-        if (numeroCorrectas == largoPalabra + 1) {
-          console.log("GANASTE");
+    if (correcta.includes(evt) == false) {
+      correcta = correcta + evt;
+      for (let i = 0; i <= largoPalabra; i++) {
+        const letra = document.querySelector(".letra" + i);
+        if (evt == letra.textContent) {
+          letra.style.fontSize = "48px";
+          numeroCorrectas++;
         }
       }
     }
-  } else if (incorrecta.includes(evt)) {
-    numeroIncorrectas++;
-  } else {
-    numeroMuneco++;
-    numeroIncorrectas++;
-    incorrecta = incorrecta + evt;
-    containerIncorectas.textContent = incorrecta;
-    Muneco = document.querySelector(".muneco" + numeroMuneco);
-    Muneco.style.display = "flex";
   }
-  if (numeroIncorrectas == 5) {
-    console.log("Perdiste");
+}
+
+//Guarda letras incorrectas sin repetir || Contador para perder
+function incorrectas(evt) {
+  if (seleccionada.includes(evt) == false) {
+    if (incorrecta.includes(evt) == false) {
+      numeroIncorrectas++;
+      numeroMuneco++;
+      incorrecta = incorrecta + evt;
+      Muneco = document.querySelector(".muneco" + numeroMuneco);
+      containerIncorectas.textContent = incorrecta;
+      Muneco.style.display = "flex";
+    }
   }
 }

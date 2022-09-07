@@ -33,11 +33,14 @@ let palabras = [
   "figma",
   "junior",
 ];
+let habilitateclado = false;
 
 btnIniciar.addEventListener("click", () => {
   seleccionar(palabras);
   palabra = arrayPalabra(palabra);
   grillaPalabra(palabra);
+  habilitateclado = true;
+  console.log(habilitateclado);
   container1.style.display = "none";
   container3.style.display = "flex";
 });
