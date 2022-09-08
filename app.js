@@ -16,7 +16,6 @@ let largoPalabra = 0;
 if ((habilitateclado = true)) {
   teclado.addEventListener("keyup", (evt) => {
     evt = evt.key.toLocaleUpperCase();
-    console.log(evt);
     if (expRegLetras.test(evt) == true && evt.split("").length == 1) {
       verificar(evt);
     }
