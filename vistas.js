@@ -1,5 +1,5 @@
 const btnIniciar = document.querySelector(".btn--iniciar");
-const btnIngresar = document.querySelector(".btn--ingresarPalabra");
+const btnIngresar = document.querySelector(".btn--agregarPalabra");
 
 const nuevaPalabra = document.querySelector(".ingresartexto");
 const guardar = document.querySelector(".guardar");
@@ -33,14 +33,15 @@ let palabras = [
   "figma",
   "junior",
 ];
+let palabra = "";
 let habilitateclado = false;
+let modo = true;
 
 btnIniciar.addEventListener("click", () => {
   seleccionar(palabras);
   palabra = arrayPalabra(palabra);
   grillaPalabra(palabra);
   habilitateclado = true;
-  console.log(habilitateclado);
   container1.style.display = "none";
   container3.style.display = "flex";
 });
@@ -55,6 +56,8 @@ guardar.addEventListener("click", () => {
   seleccionar(palabras);
   palabra = arrayPalabra(palabra);
   grillaPalabra(palabra);
+  habilitateclado = true;
+  modo = false;
   container2.style.display = "none";
   container3.style.display = "flex";
 });
@@ -63,7 +66,8 @@ secreta.addEventListener("click", () => {
   palabra = nuevaPalabra.value;
   palabra = arrayPalabra(palabra);
   grillaPalabra(palabra);
-
+  habilitateclado = true;
+  modo = false;
   container2.style.display = "none";
   container3.style.display = "flex";
 });
@@ -73,11 +77,11 @@ cancelar.addEventListener("click", () => {
 });
 
 nuevoJuego.addEventListener("click", () => {
-  window.location.reload();
+  console.log("nuevo juego");
+  container3.style.display = "flex";
+  reiniciarJuego();
 });
 
 desistir.addEventListener("click", () => {
   window.location.reload();
 });
-
-//console.log(nuevoJuego);

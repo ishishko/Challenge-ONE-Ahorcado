@@ -10,33 +10,32 @@ let numeroIncorrectas = 0;
 let correcta = "";
 let numeroCorrectas = 0;
 let numeroMuneco = 0;
-let palabra = "";
 let largoPalabra = 0;
 
-if ((habilitateclado = true)) {
-  teclado.addEventListener("keyup", (evt) => {
+teclado.addEventListener("keyup", (evt) => {
+  if (habilitateclado == true) {
     evt = evt.key.toLocaleUpperCase();
     if (expRegLetras.test(evt) == true && evt.split("").length == 1) {
       verificar(evt);
     }
-  });
-}
+  }
+});
 
 //selecciona palabra
 function seleccionar(adivinar) {
   palabra = adivinar[Math.floor(Math.random() * adivinar.length)];
-  seleccionada = palabra.toUpperCase();
-  console.log(seleccionada);
 }
 
 //Poner todas las letras en mayusculas y devuelve array de palabra
 function arrayPalabra(seleccion) {
   seleccion = seleccion.toUpperCase();
+  seleccionada = seleccion;
+  console.log(seleccionada);
   seleccion = seleccion.split("");
   return seleccion;
 }
 
-//Creando grilla de palabras
+//Creando grilla de palabra
 function grillaPalabra(palabra) {
   largoPalabra = palabra.length - 1;
   console.log(palabra);
@@ -90,5 +89,33 @@ function incorrectas(evt) {
       containerIncorectas.textContent = incorrecta;
       Muneco.style.display = "flex";
     }
+  }
+}
+
+function reiniciarJuego() {
+  for (let i = 0; i <= largoPalabra; i++) {
+    const limpiarHtml = document.querySelector(".letras");
+    limpiarHtml.remove();
+  }
+  for (let i = 1; i <= 6; i++) {
+    Muneco = document.querySelector(".muneco" + i);
+    Muneco.style.display = "none";
+  }
+  containerIncorectas.textContent = "";
+  numeroMuneco = 0;
+  numeroCorrectas = 0;
+  numeroIncorrectas = 0;
+  correcta = "";
+  incorrecta = "";
+  if (modo) {
+    seleccionar(palabras);
+    palabra = arrayPalabra(palabra);
+    grillaPalabra(palabra);
+    habilitateclado = true;
+  } else {
+    habilitateclado = false;
+    container1.style.display = "none";
+    container2.style.display = "flex";
+    container3.style.display = "none";
   }
 }
