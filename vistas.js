@@ -63,13 +63,19 @@ guardar.addEventListener("click", () => {
 });
 
 secreta.addEventListener("click", () => {
-  palabra = nuevaPalabra.value;
-  palabra = arrayPalabra(palabra);
-  grillaPalabra(palabra);
-  habilitateclado = true;
-  modo = false;
-  container2.style.display = "none";
-  container3.style.display = "flex";
+  console.log(nuevaPalabra.value);
+  if (nuevaPalabra.value != "" && expRegLetras.test(nuevaPalabra.value) == true) {
+    palabra = nuevaPalabra.value;
+    palabra = arrayPalabra(palabra);
+    grillaPalabra(palabra);
+    habilitateclado = true;
+    modo = false;
+    container2.style.display = "none";
+    container3.style.display = "flex";
+  } else {
+    console.log("error");
+    nuevaPalabra.value = "";
+  }
 });
 
 cancelar.addEventListener("click", () => {

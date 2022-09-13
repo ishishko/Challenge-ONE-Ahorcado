@@ -1,5 +1,8 @@
 const container3P = document.querySelector(".container3P");
 const containerIncorectas = document.querySelector(".containerIncorectas");
+
+const ganaste = document.querySelector(".ganaste");
+const perdiste = document.querySelector(".perdiste");
 const teclado = document.querySelector("html");
 const expRegLetras = /^[A-Z]+$/i;
 let Muneco = "";
@@ -30,7 +33,6 @@ function seleccionar(adivinar) {
 function arrayPalabra(seleccion) {
   seleccion = seleccion.toUpperCase();
   seleccionada = seleccion;
-  console.log(seleccionada);
   seleccion = seleccion.split("");
   return seleccion;
 }
@@ -38,7 +40,6 @@ function arrayPalabra(seleccion) {
 //Creando grilla de palabra
 function grillaPalabra(palabra) {
   largoPalabra = palabra.length - 1;
-  console.log(palabra);
   for (let i = 0; i < palabra.length; i++) {
     const letras3P = document.createElement("div");
     letras3P.textContent = palabra[i];
@@ -55,9 +56,11 @@ function verificar(evt) {
   incorrectas(evt);
   if (numeroCorrectas == largoPalabra + 1) {
     console.log("GANASTE");
+    ganar();
   }
   if (numeroIncorrectas == 6) {
     console.log("PERDISTE");
+    perder();
   }
 }
 
@@ -70,7 +73,7 @@ function correctas(evt) {
       for (let i = 0; i <= largoPalabra; i++) {
         const letra = document.querySelector(".letra" + i);
         if (evt == letra.textContent) {
-          letra.style.fontSize = "48px";
+          letra.style.fontSize = "36px";
           numeroCorrectas++;
         }
       }
@@ -92,6 +95,16 @@ function incorrectas(evt) {
   }
 }
 
+function ganar() {
+  ganaste.style.display = "block";
+  habilitateclado = false;
+}
+
+function perder() {
+  perdiste.style.display = "block";
+  habilitateclado = false;
+}
+
 function reiniciarJuego() {
   for (let i = 0; i <= largoPalabra; i++) {
     const limpiarHtml = document.querySelector(".letras");
@@ -107,6 +120,9 @@ function reiniciarJuego() {
   numeroIncorrectas = 0;
   correcta = "";
   incorrecta = "";
+  ganaste.style.display = "none";
+  perdiste.style.display = "none";
+  habilitateclado = true;
   if (modo) {
     seleccionar(palabras);
     palabra = arrayPalabra(palabra);
